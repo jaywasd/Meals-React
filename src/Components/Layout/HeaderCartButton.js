@@ -15,6 +15,9 @@ const HeaderCartButton = (props) => {
     props.onClick();
   };
 
+
+  const flatItems = JSON.stringify(items);
+
   useEffect(() => {
     if (items.length === 0) {
       return;
@@ -26,7 +29,7 @@ const HeaderCartButton = (props) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [JSON.stringify(items)]);
+  }, [flatItems, items.length]);
 
   const buttonClasses = `${classes.button} ${animation ? classes.bump : ""}`;
 
